@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .container {
+        @apply max-w-[1250px] !important;
+    }
+  }
+
+   html
+{
+    @apply scroll-smooth font-montserrat !important;
+}
+
+section p {
+    @apply text-gray-600  mb-3 text-justify font-montserrat !text-[15px];
+}
+section ul li, section ol li
+{
+    @apply text-gray-600  mb-1.5 text-justify font-montserrat !text-[15px] ml-4;
+}
+#mega-menu-wrap-menu-1 #mega-menu-menu-1 > li.mega-menu-item > a.mega-menu-link
+{
+    @apply font-semibold font-montserrat !important;
+}
+.advgb-accordion-header, .advgb-accordion-header.ui-accordion-header.ui-state-default
+{
+  @apply border-x-0 border-t-0  border-b text-sm !important;
+  
+}
+.advgb-accordion-body, .advgb-accordion-wrapper .advgb-accordion-body.ui-widget-content
+{
+  @apply border-transparent !important;
+}
+.wp-block-advgb-accordion-item
+{
+  @apply mb-0 !important;
+}
+.wp-block-advgb-accordions
+{
+  @apply mb-8 !important;
+}
+section ul li
+{
+  @apply list-disc;
+}
+
+section tbody, .accordion, .wp-block-table figcaption
+{
+    @apply text-gray-700 ;
+}
+
+.wp-block-table
+{
+  @apply mb-4;
+}
+section .wp-block-image, section .wp-block-gallery
+{
+    @apply mb-4;
+}
+
+section a:visited
+{
+    @apply text-[#D4B66A];
+}
+section a
+  {
+    @apply text-[#367bff];
+  }
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 50%;
+  background: #fff;
+  color: #000 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Hover efecto */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #000;
+  color: #fff !important;
+}
+
+/* Tamaño de la flecha */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+/* Paginación color #274131 */
+.swiper-pagination-bullet {
+  background: #274131 !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #274131 !important;
+  opacity: 1;
+}
+.wp-block-advgb-list, .wp-block-advgb-adv-tabs
+{
+    margin-bottom: 2rem;
+}
+.wp-block-advgb-list ul, .advgb-tabs-panel   {
+  margin-left: 1rem;
+}
+
+.wp-block-advgb-list ul li, .advgb-tabs-panel li {
+  list-style: none !important;
+}
+
+.maintour h2
+{
+    @apply text-2xl font-medium mb-3 font-montserrat border-b-2 pb-1;
+}
+.advgb-tab-button
+{
+    padding: 13px !important;
+  border: 1px solid #ececec !important;
+}
+
+ul.advgb-tabs-panel li.advgb-tab.ui-tabs-active a, ul.advgb-tabs-panel li.advgb-tab.ui-tabs-active button.advgb-tab-button, ul.advgb-tabs-panel li.advgb-tab.advgb-tab-active a, ul.advgb-tabs-panel li.advgb-tab.advgb-tab-active button.advgb-tab-button {
+  color: inherit !important;
+  padding: 13px !important;
+  border: 1px solid #ececec !important;
+}
+
+  /* Degradado verde más claro para el scroll */
+        .bg-green-gradient {
+            background: linear-gradient(to bottom, 
+                #2d4a37 0%, 
+                #1e3527 50%, 
+                #193f28 100%);
+        }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        .bg-luxury-gradient {
+            background: linear-gradient(135deg, #2d4a37 0%, #1e3527 50%, #193f28 100%);
+        }
+        
+        .text-luxury-gold { color: #D4B66A; }
+        .border-luxury-gold { border-color: #D4B66A; }
+        .bg-luxury-gold { background-color: #D4B66A; }
+        .hover\:bg-luxury-gold:hover { background-color: #D4B66A; }
+        
+        .footer-divider {
+            background: linear-gradient(90deg, transparent 0%, #D4B66A 50%, transparent 100%);
+            height: 1px;
+        }
+        
+        .social-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .social-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 182, 106, 0.3);
+        }
