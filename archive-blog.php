@@ -8,22 +8,59 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main pt-20">
-    <!-- Hero Section Minimalista -->
-    <section class="py-16 border-b border-gray-200 relative bg-cover bg-center bg-no-repeat min-h-[400px]" 
-             style="background-image: url('https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
-        <!-- Overlay con gradiente -->
-        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(30, 54, 39, 0.9) 0%, rgba(42, 77, 53, 0.8) 100%);"></div>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center max-w-3xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-light text-white mb-6">
-                    Blog
-                </h1>
-                <p class="text-lg font-light leading-relaxed" style="color: #D4B66A;">
-                    Discover stories, tips and unique travel experiences in Peru
-                </p>
+<main id="primary" class="site-main">
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center overflow-hidden" style="min-height: 70vh;">
+        <!-- Imagen de fondo -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style="background-image: url('https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+
+        <!-- Overlay degradado -->
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(30,54,39,0.75) 0%, rgba(10,20,15,0.85) 100%);"></div>
+
+        <!-- Línea decorativa izquierda -->
+        <div class="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3">
+            <div class="w-px h-24" style="background: #D4B66A;"></div>
+            <span class="text-xs tracking-[0.3em] uppercase rotate-90 origin-center" style="color: #D4B66A;">Blog</span>
+            <div class="w-px h-24" style="background: #D4B66A;"></div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border text-xs font-medium uppercase tracking-widest" 
+                 style="border-color: rgba(212,182,106,0.4); color: #D4B66A; background: rgba(212,182,106,0.08);">
+                <span class="w-1.5 h-1.5 rounded-full inline-block" style="background:#D4B66A;"></span>
+                Peru Luxury Trips
             </div>
+
+            <!-- Título -->
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-tight mb-6">
+                Travel<br>
+                <em class="not-italic font-extralight" style="color: #D4B66A;">Stories</em>
+            </h1>
+
+            <!-- Descripción -->
+            <p class="text-base md:text-lg font-light text-white/70 max-w-xl mx-auto mb-10 leading-relaxed">
+                Discover tips, guides and unique experiences to make your journey through Peru unforgettable.
+            </p>
+
+            <!-- Separador dorado -->
+            <div class="flex items-center justify-center gap-4">
+                <div class="h-px w-16" style="background: #D4B66A;"></div>
+                <svg class="w-4 h-4" style="color: #D4B66A;" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm0-9a1 1 0 011 1v3.586l2.707 2.707a1 1 0 01-1.414 1.414l-3-3A1 1 0 019 12V8a1 1 0 011-1z"/>
+                </svg>
+                <div class="h-px w-16" style="background: #D4B66A;"></div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+            <span class="text-xs tracking-widest uppercase text-white/40">Scroll</span>
+            <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+            </svg>
         </div>
     </section>
 
