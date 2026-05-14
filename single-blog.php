@@ -38,7 +38,7 @@ get_header();
 
 					<?php 
 
-					the_post_thumbnail( '', array(
+					the_post_thumbnail( 'full', array(
 						'class'  => 'w-full h-full object-cover',
 						'srcset' => false,
 						'sizes'  => false,
