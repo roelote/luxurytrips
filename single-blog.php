@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * The template for displaying single blog posts
  *
@@ -18,8 +18,10 @@ get_header();
 			<?php if ( has_post_thumbnail() ) : ?>
 				<div class="absolute inset-0">
 					<?php 
-					the_post_thumbnail( 'full', array(
-						'class' => 'w-full h-full object-cover'
+					the_post_thumbnail( 'full', array(
+						'class'  => 'w-full h-full object-cover',
+						'srcset' => false,
+						'sizes'  => false,
 					) ); 
 					?>
 				</div>
@@ -34,7 +36,7 @@ get_header();
 			<div class="relative z-10 flex items-center justify-center h-full">
 				<div class="container mx-auto px-4 text-center text-white">
 					<div class="max-w-4xl mx-auto">
-						<!-- Categoría -->
+						<!-- CategorÃ­a -->
 						<?php
 						$categories = get_the_category();
 						if ( ! empty( $categories ) ) : ?>
@@ -43,12 +45,12 @@ get_header();
 							</span>
 						<?php endif; ?>
 						
-						<!-- Título -->
+						<!-- TÃ­tulo -->
 						<h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-6">
 							<?php the_title(); ?>
 						</h1>
 						
-						<!-- Meta información -->
+						<!-- Meta informaciÃ³n -->
 						<div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-white/80">
 							<div class="flex items-center">
 								<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +76,7 @@ get_header();
 			</div>
 		</section>
 
-		<!-- Contenido del artículo con Sidebar -->
+		<!-- Contenido del artÃ­culo con Sidebar -->
 		<article class="py-16 bg-white">
 			<div class="container mx-auto px-4">
 				<div class="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
@@ -190,7 +192,7 @@ get_header();
 			</div>
 		</article>
 
-		<!-- Navegación entre posts -->
+		<!-- NavegaciÃ³n entre posts -->
 		<section class="py-12 bg-gray-50 border-t border-gray-200">
 			<div class="container mx-auto px-4">
 				<div class="max-w-4xl mx-auto">
@@ -239,7 +241,7 @@ get_header();
 			<div class="container mx-auto px-4">
 				<div class="max-w-6xl mx-auto">
 					<h2 class="text-3xl font-light text-center text-gray-900 mb-12">
-						Artículos <span class="font-bold">Relacionados</span>
+						ArtÃ­culos <span class="font-bold">Relacionados</span>
 					</h2>
 					
 					<?php
@@ -283,7 +285,7 @@ get_header();
 											</div>
 											<a href="<?php echo esc_url( get_permalink() ); ?>" 
 											   class="text-green-600 hover:text-green-700 text-sm font-medium transition-colors duration-200 flex items-center">
-												Leer más
+												Leer mÃ¡s
 												<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 												</svg>
@@ -295,7 +297,7 @@ get_header();
 						</div>
 					<?php else : ?>
 						<div class="text-center text-gray-500">
-							<p>No hay artículos relacionados disponibles.</p>
+							<p>No hay artÃ­culos relacionados disponibles.</p>
 						</div>
 					<?php endif; ?>
 					<?php wp_reset_postdata(); ?>
@@ -309,3 +311,4 @@ get_header();
 <?php
 get_footer();
 ?>
+
