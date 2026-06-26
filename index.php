@@ -61,8 +61,15 @@ get_header();
 						<!-- Paginación Minimalista -->
 						<div class="mt-16">
 							<?php
+							global $wp_query;
+							$current_page = max( 1, get_query_var( 'paged' ), get_query_var( 'page' ) );
+							$common_classes = 'px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 hover:text-green-600 transition-colors duration-200';
+							$current_classes = 'text-white bg-green-600 border-green-600 hover:bg-green-600 hover:text-white';
+
 							$pagination = paginate_links( array(
 								'type'      => 'array',
+								'current'   => $current_page,
+								'total'     => max( 1, $wp_query->max_num_pages ),
 								'prev_text' => '← Anterior',
 								'next_text' => 'Siguiente →',
 							) );
@@ -74,16 +81,21 @@ get_header();
 										<?php foreach ( $pagination as $link ) : ?>
 											<li class="pagination-item">
 												<?php 
-												$link = str_replace( 
-													'page-numbers', 
-													'px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 hover:text-green-600 transition-colors duration-200', 
-													$link 
+												$link = preg_replace(
+													'/class="([^"]*\bpage-numbers\b[^"]*)"/',
+													'class="$1 ' . esc_attr( $common_classes ) . '"',
+													$link,
+													1
 												);
-												$link = str_replace( 
-													'current', 
-													'px-4 py-2 text-sm font-medium text-white bg-green-600 border border-green-600 rounded-md', 
-													$link 
-												);
+
+												if ( false !== strpos( $link, ' current' ) || false !== strpos( $link, 'current ' ) || false !== strpos( $link, '"current"' ) ) {
+													$link = preg_replace(
+														'/class="([^"]*\bcurrent\b[^"]*)"/',
+														'class="$1 ' . esc_attr( $current_classes ) . '"',
+														$link,
+														1
+													);
+												}
 												echo $link; 
 												?>
 											</li>

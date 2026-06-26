@@ -146,8 +146,16 @@ get_header();
                 <!-- Paginación Minimalista -->
                 <div class="mt-16">
                     <?php
+                    global $wp_query;
+                    $current_page = max( 1, get_query_var( 'paged' ), get_query_var( 'page' ) );
+                    $common_classes = 'px-4 py-2 text-sm font-medium text-white border rounded-md transition-colors duration-200';
+                    $normal_style = 'background-color: #1e3627; border-color: #1e3627;';
+                    $current_style = 'background-color: #D4B66A; border-color: #D4B66A;';
+
                     $pagination = paginate_links( array(
                         'type'      => 'array',
+                        'current'   => $current_page,
+                        'total'     => max( 1, $wp_query->max_num_pages ),
                         'prev_text' => '← Previous',
                         'next_text' => 'Next →',
                     ) );
@@ -159,26 +167,28 @@ get_header();
                                 <?php foreach ( $pagination as $link ) : ?>
                                     <li class="pagination-item">
                                         <?php 
-                                        $link = str_replace( 
-                                            'page-numbers', 
-                                            'px-4 py-2 text-sm font-medium text-white border rounded-md transition-colors duration-200', 
-                                            $link 
+                                        $link = preg_replace(
+                                            '/class="([^"]*\bpage-numbers\b[^"]*)"/',
+                                            'class="$1 ' . esc_attr( $common_classes ) . '"',
+                                            $link,
+                                            1
                                         );
-                                        $link = str_replace( 
-                                            'class="px-4 py-2 text-sm font-medium text-white border rounded-md transition-colors duration-200"', 
-                                            'class="px-4 py-2 text-sm font-medium text-white border rounded-md transition-colors duration-200" style="background-color: #1e3627; border-color: #1e3627;" onmouseover="this.style.backgroundColor=\'#D4B66A\'; this.style.borderColor=\'#D4B66A\';" onmouseout="this.style.backgroundColor=\'#1e3627\'; this.style.borderColor=\'#1e3627\';"', 
-                                            $link 
-                                        );
-                                        $link = str_replace( 
-                                            'current', 
-                                            'px-4 py-2 text-sm font-medium text-white rounded-md', 
-                                            $link 
-                                        );
-                                        $link = str_replace( 
-                                            'class="px-4 py-2 text-sm font-medium text-white rounded-md current"', 
-                                            'class="px-4 py-2 text-sm font-medium text-white rounded-md current" style="background-color: #D4B66A; border-color: #D4B66A;"', 
-                                            $link 
-                                        );
+
+                                        if ( false !== strpos( $link, ' current' ) || false !== strpos( $link, 'current ' ) || false !== strpos( $link, '"current"' ) ) {
+                                            $link = preg_replace(
+                                                '/class="([^"]*\bcurrent\b[^"]*)"/',
+                                                'class="$1" style="' . esc_attr( $current_style ) . '"',
+                                                $link,
+                                                1
+                                            );
+                                        } else {
+                                            $link = preg_replace(
+                                                '/class="([^"]*\bpage-numbers\b[^"]*)"/',
+                                                'class="$1" style="' . esc_attr( $normal_style ) . '" onmouseover="this.style.backgroundColor=\'#D4B66A\'; this.style.borderColor=\'#D4B66A\';" onmouseout="this.style.backgroundColor=\'#1e3627\'; this.style.borderColor=\'#1e3627\';"',
+                                                $link,
+                                                1
+                                            );
+                                        }
                                         echo $link; 
                                         ?>
                                     </li>
