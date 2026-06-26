@@ -25,33 +25,39 @@
 <?php wp_body_open(); ?>
 
 	
-<section class="absolute w-full z-50">
-	<header id="mainHeader" class="fixed w-full top-0 left-0 bg-gradient-to-b from-black/100 to-transparent transition-all duration-300">
-		<div class="container px-2 sm:px-0 lg:px-2">
-			<div class="flex justify-between items-center py-2">
-				<div class="logo">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img id="logoHeader" class="w-64 transition-all duration-300" 
-						     src="<?php echo esc_url( get_template_directory_uri() . '/img/logo.svg' ); ?>" 
-						     alt="<?php bloginfo( 'name' ); ?>">
-					</a>
-				</div>
-				<div>
-					<nav class="main-navigation">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_class'     => 'nav-menu',
-						)
-					);
-					?>
-					</nav>
-				</div>
+<!-- Eliminamos el <section> extra y movemos el z-50 directamente al header -->
+<header id="mainHeader" class="fixed w-full top-0 left-0 z-50 bg-gradient-to-b from-black/80 via-black/40 to-transparent backdrop-blur-sm transition-all duration-300 text-white">
+	<!-- Añadimos mx-auto para centrar el contenedor y mejoramos el padding -->
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex justify-between items-center py-4">
+			
+			<!-- Logo -->
+			<div class="logo shrink-0">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="block">
+					<img id="logoHeader" class="w-48 md:w-56 lg:w-64 transition-all duration-300 drop-shadow-md" 
+					     src="<?php echo esc_url( get_template_directory_uri() . '/img/logo.svg' ); ?>" 
+					     alt="<?php bloginfo( 'name' ); ?>">
+				</a>
 			</div>
+			
+			<!-- Navegación -->
+			<div> <!-- Ocultamos en móvil por defecto, asumiendo que tendrás un menú hamburguesa -->
+				<nav class="main-navigation">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_class'     => 'nav-menu flex space-x-8 text-sm lg:text-base font-medium tracking-wide',
+						'container'      => false, // Evita que WP envuelva el ul en un div extra
+					)
+				);
+				?>
+				</nav>
+			</div>
+
 		</div>
-	</header>
-</section>
+	</div>
+</header>
 
 <script>
 document.addEventListener("scroll", function() {
