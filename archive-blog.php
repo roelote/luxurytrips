@@ -165,7 +165,7 @@ get_header();
                         <nav class="flex justify-center">
                             <ul class="flex space-x-2">
                                 <?php foreach ( $pagination as $link ) : ?>
-                                    <li class="pagination-item">
+                                    <li class="pagination-item" style="list-style-type: none !important;">
                                         <?php 
                                         $link = preg_replace(
                                             '/class="([^"]*\bpage-numbers\b[^"]*)"/',

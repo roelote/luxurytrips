@@ -303,7 +303,7 @@ function peruluxurytrips_modify_main_query( $query ) {
 		// En la página de blog, mostrar posts del tipo 'blog'
 		if ( is_home() && ! is_front_page() ) {
 			$query->set( 'post_type', array( 'blog' ) );
-			$query->set( 'posts_per_page', 9 ); // 9 posts por página para grid 3x3
+			$query->set( 'posts_per_page', 8 ); // 8 posts por página
 		}
 	}
 }
@@ -338,7 +338,7 @@ add_action( 'pre_get_posts', 'peruluxurytrips_search_filter' );
 function peruluxurytrips_blog_posts_per_page( $query ) {
     if ( ! is_admin() && $query->is_main_query() ) {
         if ( is_post_type_archive( 'blog' ) ) {
-            $query->set( 'posts_per_page', 9 );
+			$query->set( 'posts_per_page', 8 );
         }
     }
 }
